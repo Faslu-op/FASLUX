@@ -975,7 +975,7 @@ a{
     }
     .nc-card-img-wrapper {
         height: auto;
-        aspect-ratio: 3 / 4;
+        aspect-ratio: 9 / 16;
     }
     .nc-card-img {
         object-position: top;
@@ -1033,7 +1033,7 @@ a{
     }
     .cat-img {
         height: auto;
-        aspect-ratio: 3 / 4;
+        aspect-ratio: 9 / 16;
         object-position: top;
     }
     .cat-info {
@@ -1071,7 +1071,7 @@ a{
     }
     .trend-img-box img {
         height: auto;
-        aspect-ratio: 3 / 4;
+        aspect-ratio: 9 / 16;
         object-fit: cover;
         object-position: top;
     }
