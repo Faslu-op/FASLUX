@@ -973,7 +973,10 @@ a{
         grid-template-columns: 1fr;
     }
     .nc-card-img-wrapper {
-        height: 450px;
+        height: 320px;
+    }
+    .nc-card-img {
+        object-position: top;
     }
 
     .first-section {
@@ -1013,7 +1016,8 @@ a{
         flex-direction: column;
     }
     .cat-img {
-        height: 450px;
+        height: 320px;
+        object-position: top;
     }
     .cat-title {
         font-size: 35.2px;
@@ -1032,11 +1036,13 @@ a{
         font-size: 48px;
     }
     .trend-image {
-        height: 450px;
+        height: 320px;
+        object-position: top;
     }
     .trend-img-box img {
-        height: 450px;
+        height: 320px;
         object-fit: cover;
+        object-position: top;
     }
 }
 
