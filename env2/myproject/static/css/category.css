@@ -973,9 +973,9 @@ a{
         grid-template-columns: 1fr;
     }
     .nc-card-img-wrapper {
-        height: 300px;
+        height: auto;
+        aspect-ratio: 3 / 4;
     }
-
 
     .first-section {
         flex-direction: column-reverse;
@@ -1013,6 +1013,10 @@ a{
     .category-cards {
         flex-direction: column;
     }
+    .cat-img {
+        height: auto;
+        aspect-ratio: 3 / 4;
+    }
     .cat-title {
         font-size: 35.2px;
     }
@@ -1028,6 +1032,15 @@ a{
     }
     .trend-heading {
         font-size: 48px;
+    }
+    .trend-image {
+        height: auto;
+        aspect-ratio: 3 / 4;
+    }
+    .trend-img-box img {
+        height: auto;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
     }
 }
 
