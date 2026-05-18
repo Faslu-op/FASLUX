@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/hoodie.css' %}">
+{% endblock page_css %}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="title">REGULAR FIT COLLECTION</h1>
+
+    <form method="GET" action="" class="category-search-form">
+        <input type="text" name="q" placeholder="Search regular fits..." value="{{ query|default_if_none:'' }}">
+        <button type="submit" class="search-btn">Search</button>
+    </form>
+
+    <div class="product-grid">
+        {% for i in dtls %}
+        <div class="product-card">
+
+            <div class="image-wrapper">
+                <img src="{{ i.image.url }}" class="product-image">
+            </div>
+
+            <div class="product-info">
+                <h2 class="product-name">{{ i.name }}</h2>
+
+                <p class="product-desc">{{ i.description }}</p>
+
+                <div class="price-box">
+                    <p class="offer-price">₹{{ i.offer_price }}</p>
+                    <p class="old-price">₹{{ i.price }}</p>
+                </div>
+
+                <a class="buy-btn" href="{% url 'product:one_product' i.id %}">BUY NOW</a>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

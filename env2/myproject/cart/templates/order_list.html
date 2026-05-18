@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock page_css %}
+
+{% block content %}
+<div class="orders-wrapper">
+    <h2>My Orders</h2>
+
+{% if orders %}
+    {% for order in orders %}
+    <div class="order-card">
+        <p><strong>Order ID:</strong> {{ order.id }}</p>
+        <p>Total: ₹{{ order.total_amount }}</p>
+        <p>Date: {{ order.created_at }}</p>
+
+        <a href="{% url 'cart:order_detail' order.id %}">
+            View Details
+        </a>
+    </div>
+    <hr>
+    {% endfor %}
+{% else %}
+    <p>No orders found.</p>
+{% endif %}
+</div>
+{% endblock %}

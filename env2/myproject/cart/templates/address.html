@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock page_css %}
+
+{% block content %}
+<div class="address-wrapper">
+
+  
+    <div class="address-form">
+        <h2>Shipping Address</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="text" name="phone" placeholder="Phone Number" required>
+            <textarea name="address" placeholder="Full Address" required></textarea>
+            <input type="text" name="city" placeholder="City" required>
+            <input type="text" name="pincode" placeholder="Pincode" required>
+
+            <button type="submit">Continue</button>
+        </form>
+    </div>
+
+
+    <div class="order-summary">
+        <h2>Your Order</h2>
+
+        {% for item in products %}
+        <div class="order-item">
+            <p>{{ item.name }} (x{{ item.qty }}) (Size: {{ item.size }})</p>
+            <p>₹{{ item.total_price }}</p>
+        </div>
+        {% endfor %}
+
+        <hr>
+
+        <div class="total">
+            <strong>Total: ₹{{ total }}</strong>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

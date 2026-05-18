@@ -1,0 +1,57 @@
+{% load static %}
+<section class="trend-section" id="trendinggggg">
+
+
+    <div class="trend-hero">
+
+        <div class="trend-left">
+            <span class="trend-tag">TRENDING NOW</span>
+
+            <h1 class="trend-heading">
+                WHAT’S<br>TRENDING
+            </h1>
+
+            <p class="trend-subtext">
+                Most demanded pieces, curated for now.
+            </p>
+
+            <div class="trend-line"></div>
+        </div>
+
+        <div class="trend-right">
+            <img src="{% static 'images/dsdsd.png' %}" class="trend-image">
+        </div>
+
+    </div>
+
+
+    <div class="trend-divider"></div>
+
+    <div class="trend-grid">
+        {% for i in dt %}
+        <div class="trend-card">
+
+            <div class="trend-img-box">
+                <span class="trend-badge">HOT</span>
+                <img src="{{ i.product.image.url }}">
+            </div>
+
+            <div class="trend-info">
+                <h3>{{ i.product.name }}</h3>
+
+                <div class="trend-footer">
+                    <span class="trend-price">
+                        ₹{{ i.product.offer_price }}
+                    </span>
+
+                    <a href="{% url 'product:one_products' i.id %}" class="trend-link">
+                        VIEW →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</section>

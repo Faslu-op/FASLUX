@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Login {% endblock title %}
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/signUp.css' %}">
+{% endblock page_css %}
+{% block content %}
+
+<div class="auth-container">
+    <div class="auth-card">
+        <h1>Welcome Back</h1>
+        <p class="subtitle">Login to your account</p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.non_field_errors }}
+
+            <div class="input-group">
+    <input type="text" name="username" placeholder="Username" class="custom-input">
+    {{ form.username.errors }}
+</div>
+
+<div class="input-group">
+    <input type="password" name="password" placeholder="Password" class="custom-input">
+    {{ form.password.errors }}
+</div>
+
+            <button type="submit" class="btn-primary">Login</button>
+        </form>
+
+        <p class="footer-text">
+            Don’t have an account?
+            <a href="{% url 'users:UserRegister' %}">Sign up</a>
+        </p>
+    </div>
+</div>
+
+{% endblock content %}
+
+

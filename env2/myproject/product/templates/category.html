@@ -1,0 +1,105 @@
+{% load static %}
+
+
+<section class="category-section" id="catttt">
+    <div class="category-header">
+        <div class="header-left">
+            <p class="cat-subtitle">SHOP BY CATEGORY</p>
+            <h2 class="cat-title">Explore More</h2>
+            <p class="cat-desc">From hoodies to five-sleeves — find your fit, define your vibe.</p>
+        </div>
+
+    </div>
+    <div class="category-cards">
+        
+        <a href="{% url 'product:hoodie' %}" class="cat-card-link">
+        <div class="cat-card" onmouseenter="this.querySelector('img').style.display='none'; this.querySelector('video').style.display='block'; this.querySelector('video').play();" onmouseleave="this.querySelector('video').pause(); this.querySelector('video').currentTime=0; this.querySelector('video').style.display='none'; this.querySelector('img').style.display='block';">
+          <img src="{% static 'images/hoodie.png' %}" class="cat-img" >
+          <video src="{% static 'images/VIDEO.mp4' %}" class="cat-img" style="display:none;" loop muted playsinline></video>
+          <div class="cat-info">
+            <div class="cat-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="white" stroke-width="1.5" fill="none"><path d="M20 20v-5a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v5"></path><path d="M12 11v-4a4 4 0 0 0-4-4h0a4 4 0 0 0-4 4v4"></path></svg>
+
+            </div>
+            <h3>HOODIES <br> SWEATSHIRTS</h3>
+                <p>Heavyweight comfort with bold street energy.</p>
+                <span class="explore-btn">EXPLORE → </span>
+          </div>
+        </div>
+        </a>
+
+        <a href="{% url 'product:five_sleeve' %}" class="cat-card-link">
+        <div class="cat-card" onmouseenter="this.querySelector('img').style.display='none'; this.querySelector('video').style.display='block'; this.querySelector('video').play();" onmouseleave="this.querySelector('video').pause(); this.querySelector('video').currentTime=0; this.querySelector('video').style.display='none'; this.querySelector('img').style.display='block';">
+            <img src="{% static 'images/five.png' %}" class="cat-img">
+            <video src="{% static 'images/VIDEO2.mp4' %}" class="cat-img" style="display:none;" loop muted playsinline></video>
+
+            <div class="cat-info">
+                <div class="cat-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="white" stroke-width="1.5" fill="none"><path d="M20.38 3.46L16 2a8 8 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path></svg>
+                </div>
+                <h3>FIVE-SLEEVE TEES</h3>
+                <p>Relaxed fits with standout statement graphics.</p>
+                <span class="explore-btn">EXPLORE → </span>
+            </div>
+        </div>
+        </a>
+
+        <a href="{% url 'product:regular' %}" class="cat-card-link">
+        <div class="cat-card" onmouseenter="this.querySelector('img').style.display='none'; this.querySelector('video').style.display='block'; this.querySelector('video').play();" onmouseleave="this.querySelector('video').pause(); this.querySelector('video').currentTime=0; this.querySelector('video').style.display='none'; this.querySelector('img').style.display='block';">
+        
+            <img src="{% static 'images/regular.png' %}" class="cat-img" alt="Graphic Tees">
+            <video src="{% static 'images/VIDEO3.mp4' %}" class="cat-img" style="display:none;" loop muted playsinline></video>
+           
+            <div class="cat-info">
+                <div class="cat-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="white" stroke-width="1.5" fill="none"><path d="M20.38 3.46L16 2a8 8 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path></svg>
+                </div>
+                <h3>REGULAR FIT</h3>
+                <p>Trend-driven prints made to stand out.</p>
+                <span class="explore-btn">EXPLORE →</span>
+            </div>
+        </div>
+        </a>
+      
+        <a href="{% url 'product:sleeve' %}" class="cat-card-link">
+        <div class="cat-card" onmouseenter="this.querySelector('img').style.display='none'; this.querySelector('video').style.display='block'; this.querySelector('video').play();" onmouseleave="this.querySelector('video').pause(); this.querySelector('video').currentTime=0; this.querySelector('video').style.display='none'; this.querySelector('img').style.display='block';">
+
+            <img src="{% static 'images/sleevless.png' %}" class="cat-img" alt="Limited Editions">
+            <video src="{% static 'images/VIDEO4.mp4' %}" class="cat-img" style="display:none;" loop muted playsinline></video>
+            
+            <div class="cat-info">
+                <div class="cat-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="white" stroke-width="1.5" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <h3>SLEEVLESS TEES</h3>
+                <p>Exclusive drops. Limited runs. Collectible designs.</p>
+                <span class="explore-btn">EXPLORE →</span>
+            </div>
+        </div>
+        </a>
+    </div>
+
+        <div class="category-footer">
+        <div class="footer-feature">
+            <svg viewBox="0 0 24 24" width="40" height="40" stroke="black" stroke-width="1.2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <div class="footer-feat-text">
+                <strong>TREND-FIRST</strong>
+                <span>Always ahead with the latest streetwear culture.</span>
+            </div>
+        </div>
+        <div class="footer-feature">
+            <svg viewBox="0 0 24 24" width="40" height="40" stroke="black" stroke-width="1.2" fill="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <div class="footer-feat-text">
+                <strong>PREMIUM FABRIC</strong>
+                <span>Built with quality materials for all-day comfort.</span>
+            </div>
+        </div>
+        <div class="footer-feature">
+            <svg viewBox="0 0 24 24" width="40" height="40" stroke="black" stroke-width="1.2" fill="none"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <div class="footer-feat-text">
+                <strong>FAST SHIPPING</strong>
+                <span>Quick Pan-India delivery to your doorstep.</span>
+            </div>
+        </div>
+    </div>
+</section>

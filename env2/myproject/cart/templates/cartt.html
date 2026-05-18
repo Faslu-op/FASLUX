@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/cart1.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+{% endblock page_css %}
+
+{% block content %}
+<div class="cart-wrapper">
+    <div class="cart-header">
+        <h1>Your Shopping Cart</h1>
+        <p>Review your items carefully and proceed to checkout</p>
+    </div>
+
+    {% if products %}
+    <div class="cart-container">
+        
+      
+        <div class="cart-items-section">
+            {% for item in products %}
+            <div class="cart-card">
+                <div class="cart-left">
+                    <img src="{{ item.image.url }}" alt="{{ item.name }}"> 
+                    
+                </div>
+
+                <div class="cart-right">
+                    <div class="card-top">
+                        <h2 class="product-name">{{ item.name }}</h2>
+                        <form method="POST" action="{% url 'cart:remove_item' item.cart_item_id %}" class="remove-form">
+                            {% csrf_token %}
+                            <button type="submit" class="remove-btn" title="Remove Item">
+                                <i class="ri-delete-bin-line"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <p class="product-desc">{{ item.description}}</p>
+                
+                    <p class="product-size" >Size: <span style="font-weight: 600;">{{ item.size }}</span></p>
+                   
+                    <div class="price-section">
+                        <span class="offer-price">₹{{ item.offer_price }}</span>
+                       
+                        <span class="old-price">₹{{ item.price }}</span>
+                       
+                    </div>
+
+                    <div class="cart-bottom">
+               
+                        <div class="qty-wrapper">
+                            <form method="POST" action="{% url 'cart:update_qty' item.cart_item_id %}" class="qty-form">
+                                {% csrf_token %}
+                                <input type="hidden" name="action" value="dec">
+                                <button type="submit" class="qty-btn"><i class="ri-subtract-line"></i></button>
+                            </form>
+
+                            <span class="qty">{{ item.qty }}</span>
+
+                            <form method="POST" action="{% url 'cart:update_qty' item.cart_item_id %}" class="qty-form">
+                                {% csrf_token %}
+                                <input type="hidden" name="action" value="inc">
+                                <button type="submit" class="qty-btn"><i class="ri-add-line"></i></button>
+                            </form>
+                        </div>
+
+                      
+                        <div class="item-total">
+                            Total: <span>₹{{ item.total_price }}</span>
+                        </div>
+                        <a href="{% url 'cart:address_page_single' item.cart_item_id %}" class="checkout-btn" style="padding: 8px 15px; font-size: 0.9rem; margin-left: auto;">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    
+        <div class="cart-summary-section">
+            <h2>Order Summary</h2>
+            <div class="summary-line">
+                <span>Subtotal</span>
+                <span>₹{{ total }}</span>
+            </div>
+            <div class="summary-line">
+                <span>Estimated Shipping</span>
+                <span class="free-shipping">Free</span>
+            </div>
+            <div class="summary-line">
+                <span>Tax</span>
+                <span>Calculated at checkout</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-line grand-total">
+                <span>Grand Total</span>
+                <span>₹{{ total }}</span>
+            </div>
+            <a href="{% url 'cart:address_page' %}" class="checkout-btn">
+    Proceed to Checkout <i class="ri-arrow-right-line"></i>
+</a>
+            
+            <div class="secure-badge">
+                <i class="ri-lock-2-line"></i> Secure SSL Checkout
+            </div>
+        </div>
+
+    </div>
+    {% else %}
+    <div class="empty-cart-container">
+        <div class="empty-icon">
+            <i class="ri-shopping-cart-2-line"></i>
+        </div>
+        <h2>Your cart is empty</h2>
+        <p>Looks like you haven't added anything to your cart yet.</p>
+        <a href="/" class="continue-shopping">Explore Products</a>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock content %}

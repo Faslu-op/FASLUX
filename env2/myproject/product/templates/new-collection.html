@@ -1,0 +1,56 @@
+{% load static %}
+<section class="nc-wrapper" id="newwww">
+
+    <div class="nc-hero">
+        <div class="nc-hero-left">
+                 <div class="nc-circular-badge">
+                <div class="badge-text">LIMITED DROP 2026</div>
+                <div class="badge-star">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+            </div>
+            <div class="nc-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                <span>NEW SEASON DROP</span>
+            </div>
+            
+            <p class="nc-subtitle">NEW <strong>COLLECTION</strong></p>
+            <h2 class="nc-title">UNLEASH<br>THE NEXT</h2>
+            
+            <p class="nc-desc">Engineered for the streets. Designed for<br>those who move different.</p>
+        </div>
+
+        <div class="nc-hero-right">
+            <video src="{% static 'images/new.mp4' %}" autoplay loop muted playsinline class="nc-hero-img"></video>
+
+        </div>
+    </div>
+
+   
+
+   
+     <div class="nc-products">
+        {% for i in dtls|slice:':3' %}
+       <a href="{% url 'product:one_product' i.id %}" >
+
+        <div class="nc-card">
+   
+
+            <div class="nc-card-img-wrapper">
+                <div class="nc-new-badge">✦ NEW</div>
+                <img src="{{ i.image.url }}"  class="nc-card-img">
+            </div>
+            <div class="nc-card-info">
+                <h3>{{ i.name }}</h3>
+                <p>{{ i.description }}</p>
+                <div class="nc-card-bottom">
+                    <span class="nc-price">{{ i.offer_price }}</span>
+                    <!-- <a href="{% url 'product:one_product' i.id %}" class="nc-view-link">VIEW DETAILS →</a> -->
+                  <span class="explore-btnn">BUY NOW →</span>
+                </div>
+            </div>
+        </div>
+        </a>
+ {% endfor %}    
+    </div>
+</section>

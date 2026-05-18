@@ -1,0 +1,15 @@
+# Ignore Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore the virtual environment binaries and libraries inside env2
+# but KEEP the myproject folder which contains your source code
+env2/*
+!env2/myproject/
+
+# Ignore SQLite database (often you don't want to commit the DB)
+db.sqlite3
+
+# Ignore macOS hidden files
+.DS_Store

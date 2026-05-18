@@ -1,0 +1,129 @@
+
+{% load static %}
+
+<section class="faslux-nav-section">
+
+    <header class="faslux-nav">
+
+        <div class="faslux-left">
+            <a href="{% url 'product:index' %}" style="text-decoration: none;"><div class="faslux-logo">FASLUX</div></a>
+            
+        </div>
+
+        <nav class="faslux-center">
+            <div class="nav-dropdown">
+                <a href="#" class="dropbtn">CATEGORIES</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'product:hoodie' %}">HOODIES SWEATSHIRTS</a>
+                    <a href="{% url 'product:five_sleeve' %}">OVERSIZED TEES</a>
+                    <a href="{% url 'product:regular' %}">REGULAR FIT</a>
+                    <a href="{% url 'product:sleeve' %}">SLEEVLESS TEES</a>
+                </div>
+            </div>
+            <a href="{% url 'product:index' %}#newwww">NEW ARRIVALS</a>
+            <a href="{% url 'product:index' %}#trendinggggg">TRENDING ITEMS</a>
+            
+      
+            <div class="mobile-icons mobile-only">
+                <a href="{% url 'cart:order_list' %}" class="nav-icon-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                </a>
+                
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'users:profiledetails' %}" class="nav-icon-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </a>
+                {% else %}
+                    <a href="{% url 'users:login' %}" class="nav-icon-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </a>
+                {% endif %}
+
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'cart:cart_home' %}" class="nav-icon-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    </a>
+                {% else %}
+                    <a href="{% url 'users:login' %}" class="nav-icon-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    </a>
+                {% endif %}
+            </div>
+        </nav>
+
+        <div class="faslux-right">
+            <a href="{% url 'cart:order_list' %}" class="nav-icon-link order-action" style="color: #fff; text-decoration: none; display: flex; align-items: center; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.6" onmouseout="this.style.opacity=1" title="My Orders">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            </a>
+            
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'users:profiledetails' %}" class="nav-icon-link user-action" style="color: #fff; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 14px; letter-spacing: 1px; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.6" onmouseout="this.style.opacity=1" title="My Profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span class="user-name" style="color: #fff;">{{ request.user.username|upper }}</span>
+                </a>
+            {% else %}
+                <a href="{% url 'users:login' %}" class="nav-icon-link user-action" style="color: #fff; text-decoration: none; display: flex; align-items: center; gap: 8px; font-size: 14px; letter-spacing: 1px; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.6" onmouseout="this.style.opacity=1" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span class="user-name" style="color: #fff;">USER</span>
+                </a>
+            {% endif %}
+
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'cart:cart_home' %}" class="nav-icon-link cart-action" style="color: #fff; text-decoration: none; display: flex; align-items: center; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.6" onmouseout="this.style.opacity=1" title="My Cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            </a>
+     
+            {% else %}
+                  <a href="{% url 'users:login' %}" class="nav-icon-link cart-action" style="color: #fff; text-decoration: none; display: flex; align-items: center; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.6" onmouseout="this.style.opacity=1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            </a>
+            {% endif %}
+
+            <!-- <a href="{% url 'cart:cart_home' %}" class="nav-icon-link cart-action" style="color: #fff; text-decoration: none; display: flex; align-items: center; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.6" onmouseout="this.style.opacity=1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            </a> -->
+        </div>
+
+    
+        <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </header>
+
+</section>
+
+<script>
+    document.getElementById('navToggle').addEventListener('click', function() {
+        document.querySelector('.faslux-center').classList.toggle('nav-active');
+        this.classList.toggle('toggle-active');
+    });
+
+  
+    const dropBtn = document.querySelector('.nav-dropdown .dropbtn');
+    if (dropBtn) {
+        dropBtn.addEventListener('click', function(e) {
+            if (window.innerWidth <= 992) {
+                e.preventDefault();
+                const content = this.nextElementSibling;
+                content.classList.toggle('accordion-active');
+            }
+        });
+    }
+
+  
+    const navLinks = document.querySelectorAll('.faslux-center a:not(.dropbtn)');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 992) {
+                document.querySelector('.faslux-center').classList.remove('nav-active');
+                document.getElementById('navToggle').classList.remove('toggle-active');
+            }
+        });
+    });
+</script>
+
+
+<div style="height: 70px; width: 100%; display: block;"></div>

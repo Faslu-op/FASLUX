@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/success.css' %}">
+{% endblock page_css %}
+
+{% block content %}
+<div class="success-page">
+    <div class="success-card">
+        <div class="success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="success-circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="success-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        </div>
+        <h2>Order Placed Successfully!</h2>
+        <p>Thank you for your purchase. Your order has been confirmed and is being processed.</p>
+        <div class="success-actions">
+            <a href="/" class="btn-primary">Continue Shopping</a>
+            <a href="{% url 'cart:order_list' %}" class="btn-secondary">View Orders</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

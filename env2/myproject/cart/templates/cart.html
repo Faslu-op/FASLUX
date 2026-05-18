@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/cart1.css' %}">
+{% endblock page_css %}
+
+{% block content %}
+
+<div class="cart-container">
+
+    <div class="cart-card">
+
+        <div class="cart-left">
+            <img src="{{ dtls.image.url }}" alt="">
+        </div>
+
+        <div class="cart-right">
+
+            <h2 class="product-title">{{ dtls.name }}</h2>
+
+            <p class="product-desc">
+                {{ dtls.description }}
+            </p>
+
+            <div class="price-section">
+                <span class="offer-price">₹{{ dtls.offer_price }}</span>
+                <span class="old-price">₹{{ dtls.price }}</span>
+            </div>
+
+            <div class="cart-actions">
+                <button class="qty-btn">-</button>
+                <span class="qty">1</span>
+                <button class="qty-btn">+</button>
+
+                <button class="remove-btn">Remove</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}

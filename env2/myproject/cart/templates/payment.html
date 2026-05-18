@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock page_css %}
+
+{% block content %}
+<div class="payment-wrapper">
+
+    
+    <div class="address-box">
+        <h3>Delivery Address</h3>
+        <p>{{ address.name }}</p>
+        <p>{{ address.phone }}</p>
+        <p>{{ address.address }}</p>
+        <p>{{ address.city }} - {{ address.pincode }}</p>
+    </div>
+
+
+    <div class="payment-method">
+        <h3>Payment Method</h3>
+
+        <div class="cod-box">
+            <input type="radio" checked>
+            <label>Cash on Delivery</label>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="place-order-btn">
+                Place Order
+            </button>
+        </form>
+    </div>
+
+
+    <div class="order-summary">
+        <h3>Order Summary</h3>
+
+        {% for item in products %}
+        <div>
+            {{ item.name }} x {{ item.qty }} — ₹{{ item.total_price }} (Size:{{ item.size }})
+        </div>
+        {% endfor %}
+
+        <hr>
+        <strong>Total: ₹{{ total }}</strong>
+    </div>
+
+</div>
+{% endblock %}

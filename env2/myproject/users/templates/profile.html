@@ -1,0 +1,33 @@
+{% extends "base.html" %} 
+{% load static %}
+{% block title %} Profile {% endblock title %} 
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock page_css %}
+
+{% block content %}
+  <div class="profile-card">
+        <h3>EDIT PROFILE</h3>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" value="{{ ob.email }}">
+        </div>
+
+        <div class="form-group">
+            <label>City</label>
+            <input type="text" name="city" value="{{ ob.city }}">
+        </div>
+
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="text" name="phone" value="{{ ob.phone }}">
+        </div>
+
+        <button type="submit" class="btn">Save Profile</button>
+    </form>
+</div>
+{% endblock content %}

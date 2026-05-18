@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/one.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+
+<section class="product-panel">
+
+    <div class="product-container">
+
+   
+        <div class="product-left">
+            <img src="{{ dtls.image.url }}" alt="{{ dtls.name }}">
+        </div>
+
+        
+        <div class="product-right">
+
+            <p class="product-label">TRENDING PRODUCT</p>
+
+            <h1 class="product-title">{{ dtls.name }}</h1>
+
+            <div class="price-box">
+                <span class="price">₹{{ dtls.offer_price|default:dtls.price }}</span>
+                {% if dtls.offer_price %}
+                <span class="old-price">₹{{ dtls.price }}</span>
+                {% endif %}
+            </div>
+
+            <p class="short-desc">{{ dtls.short_description }}</p>
+
+           
+            <form method="GET" action="{% url 'cart:add_to_cart' dtls.id %}" class="product-form">
+                <div class="option-block">
+                    <h4>Size</h4>
+                    <div class="options">
+                        {% for size in dtls.sizes.all %}
+                        <label class="size-option">
+                            <input type="radio" name="size" value="{{ size.name }}" required>
+                            <span>{{ size.name }}</span>
+                        </label>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="option-block">
+                    <h4>Material</h4>
+                    <div class="options">
+                        {% for material in dtls.materials.all %}
+                        <span class="option passive">{{ material.name }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <button type="submit" class="buy-btn">
+                    ADD TO CART
+                </button>
+            </form>
+
+            <div class="long-desc">
+                <h3>Details</h3>
+                <p>{{ dtls.long_description }}</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<div class="divider"></div>
+
+
+<section class="similar">
+
+    <h2>You May Also Like</h2>
+
+    <div class="grid">
+        {% for i in dtlss %}
+        <a href="{% url 'product:one_product' i.id %}" class="similar-card-link">
+        <div class="card">
+            <img src="{{ i.image.url }}">
+            <div class="card-info">
+                <h3>{{ i.name }}</h3>
+                <p>₹{{ i.offer_price|default:i.price }}</p>
+                <span class="view-btn">VIEW →</span>
+            </div>
+        </div>
+        </a>
+        {% endfor %}
+    </div>
+
+</section>
+
+
+{% endblock %}

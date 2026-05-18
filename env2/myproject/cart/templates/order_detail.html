@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+{% endblock page_css %}
+
+{% block content %}
+<div class="orders-wrapper">
+    <h2>Order #{{ order.id }}</h2>
+
+    <div class="order-detail-card">
+        <h3>Delivery Address</h3>
+        <p>{{ order.name }}</p>
+        <p>{{ order.phone }}</p>
+        <p>{{ order.address }}</p>
+        <p>{{ order.city }} - {{ order.pincode }}</p>
+
+        <h3>Products</h3>
+
+        {% for item in order.items.all %}
+        <div class="order-detail-item">
+            <div>
+                <strong>{{ item.product.name }}</strong>
+                <p>Qty: {{ item.quantity }} | Size: {{ item.size|default:"N/A" }} | Price: ₹{{ item.price }}</p>
+            </div>
+            <div>
+                <strong>₹{{ item.price|floatformat:2}}</strong>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="order-total-large">
+            Total: ₹{{ order.total_amount }}
+        </div>
+    </div>
+</div>
+{% endblock %}

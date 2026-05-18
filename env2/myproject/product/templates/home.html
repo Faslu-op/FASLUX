@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block page_css %}
+
+        <link rel="stylesheet" href="{% static 'css/category.css' %}">
+        
+    {% endblock page_css %}
+{% block content %}
+
+
+{% include 'hero.html' %}
+{% include 'category.html' %}
+{% include 'new-collection.html' %}
+{% include 'trending.html' %}
+
+
+{% endblock content %}
+

@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock title %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="{% static 'css/category.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+     <link rel="stylesheet" href="{% static 'css/messages.css' %}">
+    {% block page_css %}
+    {% endblock page_css %}
+   
+</head>
+<body>
+    {% if messages %}
+        <div class="messages-container">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">
+                    <span>{{ message }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if not hide_nav %}
+    {% include 'nav.html' %}
+    {% endif %}
+    
+    {% block content %}
+    {% endblock content %}
+    
+    {% if not hide_footer %}
+    {% include 'footer.html' %}
+    {% endif %}
+
+</body>
+</html>
