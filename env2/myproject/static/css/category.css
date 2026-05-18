@@ -973,8 +973,7 @@ a{
         grid-template-columns: 1fr;
     }
     .nc-card-img-wrapper {
-        height: auto;
-        aspect-ratio: 3 / 4;
+        height: 450px;
     }
 
     .first-section {
@@ -1014,8 +1013,7 @@ a{
         flex-direction: column;
     }
     .cat-img {
-        height: auto;
-        aspect-ratio: 3 / 4;
+        height: 450px;
     }
     .cat-title {
         font-size: 35.2px;
@@ -1034,12 +1032,10 @@ a{
         font-size: 48px;
     }
     .trend-image {
-        height: auto;
-        aspect-ratio: 3 / 4;
+        height: 450px;
     }
     .trend-img-box img {
-        height: auto;
-        aspect-ratio: 3 / 4;
+        height: 450px;
         object-fit: cover;
     }
 }
