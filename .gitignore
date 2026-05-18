@@ -9,7 +9,8 @@ env2/*
 !env2/myproject/
 
 # Ignore SQLite database (often you don't want to commit the DB)
-db.sqlite3
+# Removed for Render Free Tier so local products are uploaded!
+# db.sqlite3
 
 # Ignore macOS hidden files
 .DS_Store
